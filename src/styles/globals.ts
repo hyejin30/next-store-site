@@ -29,9 +29,10 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+
 :root {
+    font-family: 'Spoqa Han Sans Neo', sans-serif;
     line-height: 1;
-    font-family: "Campton" , "Spoqa Han Sans Neo", 'sans-serif';
     letter-spacing: -.02em;
 	word-break: keep-all;
     
@@ -69,46 +70,6 @@ img {
 }
 b {
     font-weight: bold;
-}
-
-@font-face {
-	font-family: "Spoqa Han Sans Neo";
-	src: url(font/SpoqaHanSansNeo-Bold.woff) format('woff');
-	font-weight: 700;
-}
-@font-face {
-	font-family: "Spoqa Han Sans Neo";
-	src: url(font/SpoqaHanSansNeo-Medium.woff) format('woff');
-	font-weight: 500;
-}
-@font-face {
-	font-family: "Spoqa Han Sans Neo";
-	src: url(font/SpoqaHanSansNeo-Regular.woff) format('woff');
-	font-weight: 400;
-}
-@font-face {
-	font-family: "Spoqa Han Sans Neo";
-	src: url(font/SpoqaHanSansNeo-Light.woff) format('woff');
-	font-weight: 300;
-}
-@font-face {
-	font-family: "Campton";
-	src: url(font/Campton-Bold.woff) format('woff');
-	font-weight: 700;
-}
-@font-face {
-	font-family: "Campton";
-	src: url(font/Campton-SemiBold.woff) format('woff');
-}
-@font-face {
-	font-family: "Campton";
-	src: url(font/Campton-Medium.woff) format('woff');
-	font-weight: 500;
-}
-@font-face {
-	font-family: "Campton";
-	src: url(font/Campton-Book.woff) format('woff');
-	font-weight: 400;
 }
 `;
 
