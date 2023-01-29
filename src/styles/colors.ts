@@ -10,6 +10,7 @@ const colors = {
   LIGHT_GRAY_X1: '#adb5bd',
   BACKGROUND_X2: '#eeeeee',
   BACKGROUND_X1: '#f5f5f5',
+  BORDER_X1: '#dee2e6',
 };
 
 export default colors;

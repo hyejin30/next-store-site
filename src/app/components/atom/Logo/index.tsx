@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styled from 'styled-components';
+
 import { colors, fontSize } from '@/styles';
 
 interface ILogoProps {
@@ -7,34 +9,15 @@ interface ILogoProps {
   width?: number;
 }
 
-function Logo({ width = 156, path = '' }: ILogoProps) {
+function Logo({ width = 125, path = '' }: ILogoProps) {
   if (path) {
     return (
       <Link href={path}>
-        <LogoText width={width}>
-          <p>AWESOME</p>
-          <p>FOOD STORE</p>
-        </LogoText>
+        <Image alt="logo" src="/images/ic-logo-header.png" width={width} height={48} />
       </Link>
     );
   }
-  return (
-    <LogoText width={width}>
-      <p>AWESOME</p>
-      <p>FOOD STORE</p>
-    </LogoText>
-  );
+  return <Image alt="logo" src="/images/ic-logo-footer.svg" width={width} height={33} />;
 }
 
 export default Logo;
-
-interface IWrapperStyle {
-  width: number;
-}
-
-const LogoText = styled.div<IWrapperStyle>`
-  width: ${(props) => props.width}px;
-  font-size: ${fontSize.medium};
-  font-weight: 700;
-  color: ${colors.BLUE};
-`;

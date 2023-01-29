@@ -13,11 +13,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <StyledComponentsRegistry>
           <GlobalStyle />
-          <Header />
-          {children}
-          <Footer />
+          <Wrapper>
+            <Header />
+            {children}
+            <Footer />
+          </Wrapper>
         </StyledComponentsRegistry>
       </body>
     </html>
   );
 }
+
+const Wrapper = styled.div`
+  padding: 0 24px;
+`;
