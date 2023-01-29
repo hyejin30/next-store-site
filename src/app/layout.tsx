@@ -15,15 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <GlobalStyle />
           <Header />
           {children}
-          <Container></Container>
           <Footer />
         </StyledComponentsRegistry>
       </body>
     </html>
   );
 }
-
-const Container = styled.div`
-  height: 1000px;
-  background: black;
-`;
