@@ -18,4 +18,5 @@ export default Nav;
 const Navigation = styled.nav`
   ${flex('', '')}
   column-gap: 30px;
+  transform: translateX(-50%);
 `;

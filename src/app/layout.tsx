@@ -3,6 +3,7 @@
 import { Header, Footer } from '@/app/components/template';
 import StyledComponentsRegistry from '@/lib/registry';
 import GlobalStyle from '@/styles/globals';
+import styled from 'styled-components';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
