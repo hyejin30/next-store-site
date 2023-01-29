@@ -2,9 +2,16 @@
 
 import { Header, Footer } from '@/app/components/template';
 import styled from 'styled-components';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import StyledComponentsRegistry from '@/lib/registry';
-import GlobalStyle from '@/styles/globals';
+import './globals.css';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Spoqa Han Sans Neo',
+  },
+});
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -14,12 +21,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;700&display=swap" rel="stylesheet"></link>
       <body>
         <StyledComponentsRegistry>
-          <GlobalStyle />
-          <Wrapper>
-            <Header />
-            {children}
-            <Footer />
-          </Wrapper>
+          <ThemeProvider theme={theme}>
+            <Wrapper>
+              <Header />
+              {children}
+              <Footer />
+            </Wrapper>
+          </ThemeProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

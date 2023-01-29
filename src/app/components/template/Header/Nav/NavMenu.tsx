@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 import Link from 'next/link';
-import styled from 'styled-components';
 
-import { Text } from '@/app/components/atom';
+import { Typography } from '@mui/material';
+import { colors } from '@/styles';
 
 interface INavMenuProps {
   children: ReactNode;
@@ -12,13 +12,17 @@ interface INavMenuProps {
 function NavMenu({ children, path }: INavMenuProps) {
   return (
     <Link href={path}>
-      <NavMenuText>{children}</NavMenuText>
+      <Typography
+        color={colors.BLACK}
+        variant="h6"
+        sx={{
+          fontFamily: 'Kanit',
+        }}
+      >
+        {children}
+      </Typography>
     </Link>
   );
 }
 
 export default NavMenu;
-
-const NavMenuText = styled(Text.Medium)`
-  font-family: 'Kanit', sans-serif;
-`;

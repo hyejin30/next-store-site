@@ -1,21 +1,27 @@
 import styled from 'styled-components';
 
-import { Text } from '@/app/components/atom';
+import { Typography } from '@mui/material';
 
 import { FOOTER_DETAIL_LIST } from '../constant';
-import { flex, colors } from '@/styles';
+import { flex, colors, fontSize } from '@/styles';
 
 function CompanyInfo() {
   return (
     <Wrapper>
       <Detail>
-        <Text.Small weight={500}>서울특별시 광진구 아차산로 200</Text.Small>
+        <Typography component="span" sx={{ fontWeight: 500, fontSize: fontSize.small }}>
+          서울특별시 광진구 아차산로 200
+        </Typography>
         <ItemList>
           {FOOTER_DETAIL_LIST.map((detail, idx) => (
             <li>
-              <Text.Small key={`footer-detail-${idx}`} color={colors.GRAY_LIGHT_X3}>
+              <Typography
+                key={`footer-detail-${idx}`}
+                component="span"
+                sx={{ fontWeight: 300, fontSize: fontSize.small }}
+              >
                 {detail}
-              </Text.Small>
+              </Typography>
             </li>
           ))}
         </ItemList>

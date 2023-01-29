@@ -31,7 +31,6 @@ footer, header, hgroup, menu, nav, section {
 }
 
 :root {
-    font-family: 'Spoqa Han Sans Neo', sans-serif;
     line-height: 1;
     letter-spacing: -.02em;
 	word-break: keep-all;
