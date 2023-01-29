@@ -1,19 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import styled from 'styled-components';
-
-import { colors, fontSize } from '@/styles';
 
 interface ILogoProps {
   path?: string;
   width?: number;
 }
 
-function Logo({ width = 125, path = '' }: ILogoProps) {
+function Logo({ width = 115, path = '' }: ILogoProps) {
   if (path) {
     return (
       <Link href={path}>
-        <Image alt="logo" src="/images/ic-logo-header.png" width={width} height={48} />
+        <Image alt="logo" src="/images/ic-logo-header.png" width={width} height={44} />
       </Link>
     );
   }
