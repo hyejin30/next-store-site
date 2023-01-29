@@ -1,4 +1,5 @@
 import { Header, Footer } from "@/pages/components/template";
+import "./globals.css";
 
 export default function RootLayout({
   children,
