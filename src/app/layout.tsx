@@ -3,6 +3,7 @@
 import { Header, Footer } from '@/app/components/template';
 import StyledComponentsRegistry from '@/lib/registry';
 import GlobalStyle from '@/styles/globals';
+import styled from 'styled-components';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -14,9 +15,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <GlobalStyle />
           <Header />
           {children}
+          <Container></Container>
           <Footer />
         </StyledComponentsRegistry>
       </body>
     </html>
   );
 }
+
+const Container = styled.div`
+  height: 1000px;
+  background: black;
+`;
