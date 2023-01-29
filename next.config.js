@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  styledComponents: true,
+  reactStrictMode: true,
   experimental: {
     appDir: true,
-    styledComponents: true,
-    reactStrictMode: true,
   },
 };
 
