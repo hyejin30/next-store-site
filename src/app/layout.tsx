@@ -1,4 +1,4 @@
-import { Header, Footer } from "@/pages/components/organism";
+import { Header, Footer } from "@/pages/components/template";
 
 export default function RootLayout({
   children,
