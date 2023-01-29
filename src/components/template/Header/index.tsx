@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Logo } from '@/app/components/atom';
+import { Logo } from '@/components/atom';
 import Nav from './Nav';
 
 import { flex, colors, Z_INDEX } from '@/styles';

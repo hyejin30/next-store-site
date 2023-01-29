@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Line } from '@/app/components/atom';
+import { Line } from '@/components/atom';
 import CompanyInfo from './CompanyInfo';
 import CompanyLinks from './CompanyLink';
 import CopyRight from './CopyRight';
@@ -11,7 +11,7 @@ function Footer() {
   return (
     <>
       <Container>
-        <Line background={colors.BORDER_X1} />
+        <Line background={colors.BORDER_X1} height={0.5} />
         <Contents>
           <CompanyLinks />
           <CompanyInfo />

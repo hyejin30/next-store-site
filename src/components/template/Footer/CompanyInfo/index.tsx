@@ -14,12 +14,8 @@ function CompanyInfo() {
         </Typography>
         <ItemList>
           {FOOTER_DETAIL_LIST.map((detail, idx) => (
-            <li>
-              <Typography
-                key={`footer-detail-${idx}`}
-                component="span"
-                sx={{ fontWeight: 300, fontSize: fontSize.small }}
-              >
+            <li key={`footer-detail-${idx}`}>
+              <Typography component="span" sx={{ fontWeight: 300, fontSize: fontSize.small }}>
                 {detail}
               </Typography>
             </li>
