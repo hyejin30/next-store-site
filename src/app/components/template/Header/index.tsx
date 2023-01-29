@@ -8,9 +8,9 @@ import { flex, colors, Z_INDEX } from '@/styles';
 function Header() {
   return (
     <Container>
-      <Logo path="/" />
-      <Nav />
       <div />
+      <Nav />
+      <Logo path="/" />
     </Container>
   );
 }
@@ -22,7 +22,6 @@ const Container = styled.header`
   position: sticky;
   top: 0;
   height: 94px;
-  padding: 0 24px;
   background: ${colors.WHITE};
   z-index: ${Z_INDEX.header};
 `;
