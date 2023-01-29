@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { Line } from '@/app/components/atom';
 import CompanyInfo from './CompanyInfo';
 import CompanyLinks from './CompanyLink';
 import CopyRight from './CopyRight';
@@ -10,7 +11,7 @@ function Footer() {
   return (
     <>
       <Container>
-        <FooterLine />
+        <Line background={colors.BORDER_X1} />
         <Contents>
           <CompanyLinks />
           <CompanyInfo />
@@ -25,11 +26,6 @@ export default Footer;
 
 const Container = styled.footer`
   ${flex('', '', 'column')};
-`;
-
-const FooterLine = styled.div`
-  height: 0.5rem;
-  background: ${colors.BACKGROUND_X1};
 `;
 
 const Contents = styled.div`

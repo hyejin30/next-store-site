@@ -6,15 +6,15 @@ interface ILogoProps {
   width?: number;
 }
 
-function Logo({ width = 115, path = '' }: ILogoProps) {
+function Logo({ path = '' }: ILogoProps) {
   if (path) {
     return (
       <Link href={path}>
-        <Image alt="logo" src="/images/ic-logo-header.png" width={width} height={44} />
+        <Image alt="logo" src="/images/ic-logo-header.png" width={110} height={44} />
       </Link>
     );
   }
-  return <Image alt="logo" src="/images/ic-logo-footer.svg" width={width} height={33} />;
+  return <Image alt="logo" src="/images/ic-logo-footer.png" width={130} height={40} />;
 }
 
 export default Logo;
