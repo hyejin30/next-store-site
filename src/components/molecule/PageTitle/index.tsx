@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { Typography } from '@mui/material';
-import { Line } from '@/app/components/atom';
+import { Line } from '@/components/atom';
 
 import { colors, flex } from '@/styles';
 

@@ -1,22 +1,7 @@
-'use client';
+import About from '@/pages/About';
 
-import styled from 'styled-components';
-
-import { PageTitle } from '@/app/components/molecule';
-
-import { flex } from '@/styles';
-
-function About() {
-  return (
-    <Container>
-      <PageTitle>ABOUT</PageTitle>
-    </Container>
-  );
+async function AboutPage() {
+  return <About />;
 }
 
-export default About;
-
-const Container = styled.div`
-  ${flex('', '', 'column')};
-  row-gap: 30px;
-`;
+export default AboutPage;

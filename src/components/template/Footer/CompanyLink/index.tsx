@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
-import { Logo } from '@/app/components/atom';
+import { Logo } from '@/components/atom';
 
 import { FOOTER_LINK_LIST } from '../constant';
 import { flex } from '@/styles';

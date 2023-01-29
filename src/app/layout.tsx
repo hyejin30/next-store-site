@@ -1,6 +1,6 @@
 'use client';
 
-import { Header, Footer } from '@/app/components/template';
+import { Header, Footer } from '@/components/template';
 import styled from 'styled-components';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
