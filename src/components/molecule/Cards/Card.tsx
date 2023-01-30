@@ -22,11 +22,9 @@ function Card<T extends ICardData>({ data }: ICardProps<T>) {
   return (
     <>
       <Card.Thumb src={data.thumb} onClick={toggleModal} />
-      {showModal && (
-        <Modal onClose={toggleModal}>
-          <CardDetail />
-        </Modal>
-      )}
+      <Modal isOpen={showModal} onClose={toggleModal}>
+        <CardDetail />
+      </Modal>
     </>
   );
 }
