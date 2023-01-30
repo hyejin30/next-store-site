@@ -3,8 +3,9 @@
 - 원본 사이트 : https://www.common-ground.co.kr/eat.html
 - 개발 인원 : 1인 (김혜진)
 - 개발 기간 : 22.1.29 ~ 2.1 (4일)
-- 구현 화면
-<img width="881" alt="image" src="https://user-images.githubusercontent.com/98295004/215503533-373ee0f6-3f24-47de-8d14-6f1235381a23.png">
+- 구현한 화면
+
+<img width="880" alt="image" src="https://user-images.githubusercontent.com/98295004/215574488-a72b326d-1d4f-48c4-a18f-827abcbf0de1.png">
 
 
 ## 선정 이유
