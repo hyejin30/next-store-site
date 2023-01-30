@@ -1,4 +1,4 @@
-import { useState, memo } from 'react';
+import { useState, memo, useCallback } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 
@@ -15,9 +15,9 @@ interface ICardProps<T> {
 function Card<T extends ICardData>({ data }: ICardProps<T>) {
   const [showModal, setShowModal] = useState(false);
 
-  const toggleModal = () => {
+  const toggleModal = useCallback(() => {
     setShowModal((prev) => !prev);
-  };
+  }, []);
 
   return (
     <>
