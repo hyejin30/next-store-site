@@ -1,7 +1,10 @@
-import { Z_INDEX } from '@/styles';
 import { useState, useEffect, ReactNode, useRef } from 'react';
-import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+
+import Portal from '@mui/base/Portal';
+import { Box } from '@mui/system';
+
+import { Z_INDEX } from '@/styles';
 
 interface IModalProps {
   children: ReactNode;
@@ -10,46 +13,27 @@ interface IModalProps {
 
 function Modal({ children, onClose }: IModalProps) {
   const [isCSR, setIsCSR] = useState<boolean>(false);
-  const portalRef = useRef<HTMLDivElement>(document.createElement('div'));
+  const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsCSR(true);
   }, []);
 
-  useEffect(() => {
-    portalRef.current.id = 'modal';
-
-    const makePortal = () => {
-      document.body.style.overflow = 'hidden';
-      document.body.appendChild(portalRef.current);
-    };
-
-    const removePortal = () => {
-      document.body.style.overflow = '';
-      document.body.removeChild(portalRef.current);
-    };
-
-    makePortal();
-    return () => removePortal();
-  }, []);
-
   if (typeof window === 'undefined') return <></>;
   if (!isCSR) return <></>;
 
-  const Portal = ReactDOM.createPortal(
+  return (
     <>
       <Dimmed onClick={onClose} />
       <Container>
-        <CloseBtn onClick={onClose}>
-          <div>X</div>
-        </CloseBtn>
-        {children}
+        <Box sx={{ p: 1, my: 1 }} ref={container} />
+        <Portal container={container.current}>
+          <CloseBtn onClick={onClose}>X</CloseBtn>
+          {children}
+        </Portal>
       </Container>
-    </>,
-    document.body,
+    </>
   );
-
-  return Portal;
 }
 
 export default Modal;
