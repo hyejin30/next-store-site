@@ -14,7 +14,7 @@ function NavMenu({ children, path }: INavMenuProps) {
     <Link href={path}>
       <Typography
         color={colors.BLACK}
-        variant="h6"
+        variant="h5"
         sx={{
           fontFamily: 'Kanit',
         }}
