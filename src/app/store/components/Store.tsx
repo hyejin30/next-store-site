@@ -1,6 +1,5 @@
 'use client';
 
-import { MouseEvent } from 'react';
 import styled from 'styled-components';
 
 import { Cards, PageTitle } from '@/components/molecule';
