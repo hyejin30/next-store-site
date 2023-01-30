@@ -1,4 +1,4 @@
-import Store from './Store';
+import Store from './components/Store';
 
 async function getStores() {
   const res = await fetch('http://localhost:9000/stores', { cache: 'force-cache' });
