@@ -1,4 +1,5 @@
 'use client';
+
 import styled from 'styled-components';
 
 import { Cards, PageTitle } from '@/components/molecule';
@@ -41,11 +42,11 @@ const Container = styled.div`
 
 const StoreSection = styled.section`
   ${flex('', 'center', 'column')};
-  padding: 80px 0;
+  padding: 110px 0;
 `;
 
 const Wrapper = styled.div`
   ${flex('', '', 'column')};
-  max-width: 980px;
-  row-gap: 30px;
+  max-width: 1140px;
+  row-gap: 40px;
 `;

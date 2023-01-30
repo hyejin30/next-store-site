@@ -10,5 +10,5 @@ function WrapperLayout({ children }: IWrapperLayoutProps) {
 export default WrapperLayout;
 
 const Container = styled.div`
-  padding: 0 24px;
+  padding: 0 32px;
 `;
