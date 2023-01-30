@@ -1,26 +1,23 @@
-import styled from 'styled-components';
+import { useState, MouseEvent } from 'react';
 
-import { Box, Grid } from '@mui/material';
-import Image from 'next/image';
+import Modal from '@/components/molecule/Modal';
+import Card from './Card';
 
-interface ICardsProps {
-  images: string[];
+import { Grid } from '@mui/material';
+import { ICardData } from '@/types/store';
+
+interface ICardsProps<T> {
+  data: T[];
 }
 
-function Cards({ images }: ICardsProps) {
+function Cards<T extends ICardData>({ data }: ICardsProps<T>) {
   return (
     <Grid container spacing={{ sm: 4, md: 4 }}>
-      {images?.map((img, idx) => (
-        <Grid key={`img-${idx}`} item sm={6} md={2.4}>
-          <CardImage alt="image" src={img} width={200} height={200} />
-        </Grid>
+      {data?.map((card, idx) => (
+        <Card key={`card-${idx}`} data={card} />
       ))}
     </Grid>
   );
 }
 
 export default Cards;
-
-const CardImage = styled(Image)`
-  border-radius: 8px;
-`;

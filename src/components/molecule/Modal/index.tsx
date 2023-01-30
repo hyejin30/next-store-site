@@ -1,3 +1,4 @@
+import { Z_INDEX } from '@/styles';
 import { useState, useEffect, ReactNode, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
@@ -10,10 +11,6 @@ interface IModalProps {
 function Modal({ children, onClose }: IModalProps) {
   const [isCSR, setIsCSR] = useState<boolean>(false);
   const portalRef = useRef<HTMLDivElement>(document.createElement('div'));
-
-  const handleCloseBtnClick = () => {
-    onClose();
-  };
 
   useEffect(() => {
     setIsCSR(true);
@@ -41,9 +38,9 @@ function Modal({ children, onClose }: IModalProps) {
 
   const Portal = ReactDOM.createPortal(
     <>
-      <Dimmed />
+      <Dimmed onClick={onClose} />
       <Container>
-        <CloseBtn onClick={handleCloseBtnClick}>
+        <CloseBtn onClick={onClose}>
           <div>X</div>
         </CloseBtn>
         {children}
@@ -64,6 +61,7 @@ const Dimmed = styled.div`
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.5);
+  z-index: ${Z_INDEX.dimmed};
 `;
 
 const Container = styled.div`
@@ -71,6 +69,7 @@ const Container = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: ${Z_INDEX.modal};
 `;
 
 const CloseBtn = styled.button`

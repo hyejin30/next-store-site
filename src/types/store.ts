@@ -1,7 +1,6 @@
-export interface IStore {
+export interface ICardData {
   id: number;
   name: string;
-  url: string;
   description: string;
   image: string;
   thumb: string;

@@ -1,15 +1,16 @@
 'use client';
 
+import { MouseEvent } from 'react';
 import styled from 'styled-components';
 
 import { Cards, PageTitle } from '@/components/molecule';
 import { Typography } from '@mui/material';
 
 import { colors, flex } from '@/styles';
-import { IStore } from '@/types/store';
+import { ICardData } from '@/types/store';
 
 interface IStoreProps {
-  stores: IStore[];
+  stores: ICardData[];
 }
 
 export function Store({ stores }: IStoreProps) {
@@ -27,7 +28,7 @@ export function Store({ stores }: IStoreProps) {
           >
             STORE
           </Typography>
-          <Cards images={stores.map((store) => store.thumb)} />
+          <Cards data={stores} />
         </Wrapper>
       </StoreSection>
     </Container>
