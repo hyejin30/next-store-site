@@ -26,11 +26,11 @@ function Modal({ children, onClose }: IModalProps) {
     <>
       <Dimmed onClick={onClose} />
       <Container>
+        <Box sx={{ p: 1, my: 1 }} ref={container} />
         <Portal container={container.current}>
           <CloseBtn onClick={onClose}>X</CloseBtn>
           {children}
         </Portal>
-        <Box sx={{ p: 1, my: 1 }} ref={container} />
       </Container>
     </>
   );
