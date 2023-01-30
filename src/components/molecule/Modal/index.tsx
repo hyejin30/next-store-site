@@ -45,7 +45,7 @@ const Dimmed = styled.div`
   right: 0;
   z-index: ${Z_INDEX.dimmed};
   background: rgba(0, 0, 0, 0.5);
-  animation: fadein 1s;
+  animation: fadein 0.8s;
 
   @keyframes fadein {
     from {
