@@ -1,4 +1,4 @@
-import Store from '@/pages/Store';
+import Store from './Store';
 
 async function getStores() {
   const res = await fetch('http://localhost:9000/stores', { cache: 'force-cache' });

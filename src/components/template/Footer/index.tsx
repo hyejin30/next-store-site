@@ -11,7 +11,7 @@ function Footer() {
   return (
     <>
       <Container>
-        <Line background={colors.BORDER_X1} height={0.5} />
+        <Line background={colors.BACKGROUND_X2} height={0.5} />
         <Contents>
           <CompanyLinks />
           <CompanyInfo />

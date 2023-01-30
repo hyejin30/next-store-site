@@ -21,7 +21,7 @@ const Container = styled.header`
   ${flex('space-between', 'center')}
   position: sticky;
   top: 0;
-  height: 94px;
+  height: 104px;
   background: ${colors.WHITE};
   z-index: ${Z_INDEX.header};
 `;
