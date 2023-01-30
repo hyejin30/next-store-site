@@ -23,8 +23,8 @@ function PageTitle({ children }: IPageTitleProps) {
         {children}
       </Typography>
       <LineList>
-        <Line background={colors.BLUE} height={0.3} />
-        <Line background={colors.BLUE} height={0.3} />
+        <Line background={colors.BLUE} height={0.5} />
+        <Line background={colors.BLUE} height={0.5} />
       </LineList>
     </Container>
   );
