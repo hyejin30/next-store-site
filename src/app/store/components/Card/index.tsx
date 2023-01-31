@@ -16,7 +16,7 @@ interface ICardProps {
 function Card({ data }: ICardProps) {
   const [showModal, setShowModal] = useState(false);
 
-  const { name, description, image, thumb } = data;
+  const { name, description, image, thumb, url } = data;
 
   const toggleModal = useCallback(() => {
     setShowModal((prev) => !prev);
@@ -38,9 +38,13 @@ function Card({ data }: ICardProps) {
                   {description}
                 </Typography>
               </Card.Detail>
-              <Typography component="p" sx={{ fontWeight: 700 }}>
-                매장 위치 보기
-              </Typography>
+              {url && (
+                <a href={url}>
+                  <Typography component="p" sx={{ fontWeight: 700 }}>
+                    {url}
+                  </Typography>
+                </a>
+              )}
             </Card.Info>
           </Card.Inner>
         </Container>

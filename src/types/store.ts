@@ -4,4 +4,5 @@ export interface ICardData {
   description: string;
   image: string;
   thumb: string;
+  url?: string;
 }
