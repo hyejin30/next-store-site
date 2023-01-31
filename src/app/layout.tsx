@@ -10,8 +10,7 @@ import { Header, Footer, Layout, WrapperLayout, ContentsLayout } from '@/compone
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import StyledComponentsRegistry from '@/lib/registry';
-import { spoqa } from '@/styles';
-import './globals.css';
+import { spoqa, GlobalStyle } from '@/styles';
 
 const theme = createTheme({
   typography: {
@@ -41,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ThemeProvider theme={theme}>
             <QueryClientProvider client={queryClient}>
               <ReactQueryDevtools initialIsOpen={false} />
+              <GlobalStyle />
               <Layout>
                 <Header />
                 <PageTitle>{pathname}</PageTitle>
