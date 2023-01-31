@@ -1,10 +1,9 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 
-import { Typography } from '@mui/material';
 import { Line } from '@/components/atom';
 
-import { colors, flex } from '@/styles';
+import { colors, flex, fontSize, campton } from '@/styles';
 
 interface IPageTitleProps {
   children: ReactNode;
@@ -13,15 +12,7 @@ interface IPageTitleProps {
 function PageTitle({ children }: IPageTitleProps) {
   return (
     <Container>
-      <Typography
-        color={colors.BLUE}
-        variant="h4"
-        sx={{
-          fontFamily: 'Kanit',
-        }}
-      >
-        {children}
-      </Typography>
+      <Title className={campton.className}>{children}</Title>
       <LineList>
         <Line background={colors.BLUE} height={0.5} />
         <Line background={colors.BLUE} height={0.5} />
@@ -35,6 +26,11 @@ export default PageTitle;
 const Container = styled.div`
   ${flex('', '', 'column')};
   row-gap: 30px;
+`;
+
+const Title = styled.h1`
+  font-size: ${fontSize.large};
+  color: ${colors.BLUE};
 `;
 
 const LineList = styled.div`

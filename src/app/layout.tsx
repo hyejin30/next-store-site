@@ -10,6 +10,7 @@ import { Header, Footer, Layout, WrapperLayout, ContentsLayout } from '@/compone
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import StyledComponentsRegistry from '@/lib/registry';
+import { spoqa } from '@/styles';
 import './globals.css';
 
 const theme = createTheme({
@@ -33,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }, [path]);
 
   return (
-    <html>
+    <html className={spoqa.className}>
       <head />
       <body>
         <StyledComponentsRegistry>

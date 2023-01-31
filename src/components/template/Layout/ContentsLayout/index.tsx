@@ -1,8 +1,7 @@
 import { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-import { Typography } from '@mui/material';
-import { colors, flex } from '@/styles';
+import { colors, flex, campton, fontSize } from '@/styles';
 
 interface IContentsLayoutProps extends HTMLAttributes<HTMLDivElement> {
   pathname: string;
@@ -11,15 +10,7 @@ interface IContentsLayoutProps extends HTMLAttributes<HTMLDivElement> {
 function ContentsLayout({ pathname, children }: IContentsLayoutProps) {
   return (
     <Container>
-      <Typography
-        color={colors.BLACK}
-        variant="h4"
-        sx={{
-          fontFamily: 'Kanit',
-        }}
-      >
-        {pathname}
-      </Typography>
+      <Title className={campton.className}>{pathname}</Title>
       {children}
     </Container>
   );
@@ -32,4 +23,9 @@ const Container = styled.div`
   width: 100%;
   row-gap: 40px;
   min-height: 514px;
+`;
+
+const Title = styled.h1`
+  font-size: ${fontSize.large};
+  color: ${colors.BLACK};
 `;
