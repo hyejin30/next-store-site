@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }, [path]);
 
   return (
-    <html className={spoqa.className}>
+    <html className={spoqa.className} lang="ko">
       <head />
       <body>
         <StyledComponentsRegistry>

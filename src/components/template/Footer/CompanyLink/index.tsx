@@ -13,7 +13,7 @@ function CompanyLinks() {
       <LinkList>
         {FOOTER_LINK_LIST.map((link, idx) => (
           <a href={link.path} key={`image-${idx}`}>
-            <Image alt="sns image" src={link.img} width={24} height={24} />
+            <Image alt="sns image" src={link.img} width={24} height={24} loading="lazy" />
           </a>
         ))}
       </LinkList>
