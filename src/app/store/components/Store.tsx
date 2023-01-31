@@ -1,42 +1,46 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, Suspense } from 'react';
 
 import { Cards, Modal } from '@/components/molecule';
-import CardThumb from './Card/CardThumb';
-import CardDetail from './Card/CardDetail';
+import StoreThumb from './StoreThumb';
+import StoreDetail from './StoreDetail';
 
 import useGetStoreDetail from '../queries/useGetStoreDetail';
-import { ICardData } from '@/types/store';
+
+import { IStoreData } from '@/types/store';
 
 interface IStoreProps {
-  stores: ICardData[];
+  stores: IStoreData[];
 }
 
 export function Store({ stores }: IStoreProps) {
   const [storeId, setStoreId] = useState(0);
   const [showModal, setShowModal] = useState(false);
 
-  const { data } = useGetStoreDetail(storeId);
+  const { data: storeDetail, isSuccess: getSuccess } = useGetStoreDetail(storeId);
 
   const handleThumbClick = useCallback((id: number) => {
     setStoreId(id);
+    toggleModal();
   }, []);
 
   const toggleModal = useCallback(() => {
     setShowModal((prev) => !prev);
   }, []);
 
-  <>
-    <Cards>
-      {stores.map((store, idx) => (
-        <CardThumb key={`store-${idx}`} id={store.id} src={store.thumb} onClick={handleThumbClick} />
-      ))}
-    </Cards>
-    <Modal isOpen={showModal} onClose={toggleModal}>
-      <CardDetail data={data} />
-    </Modal>
-  </>;
+  return (
+    <>
+      <Cards>
+        {stores?.map((store, idx) => (
+          <StoreThumb key={`store-thumb-${idx}`} id={store.id} src={store.thumb} onClick={handleThumbClick} />
+        ))}
+      </Cards>
+      <Modal isOpen={showModal} onClose={toggleModal}>
+        {getSuccess && <StoreDetail data={storeDetail} />}
+      </Modal>
+    </>
+  );
 }
 
 export default Store;

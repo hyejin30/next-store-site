@@ -2,7 +2,8 @@
 
 import { useMemo } from 'react';
 import { usePathname } from 'next/navigation';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import { PageTitle } from '@/components/molecule';
 import { Header, Footer, Layout, WrapperLayout, ContentsLayout } from '@/components/template';
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
             <QueryClientProvider client={queryClient}>
+              <ReactQueryDevtools initialIsOpen={false} />
               <Layout>
                 <Header />
                 <PageTitle>{pathname}</PageTitle>
