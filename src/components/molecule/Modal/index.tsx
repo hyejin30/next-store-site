@@ -1,8 +1,6 @@
-import { useState, useEffect, ReactNode, useRef, Suspense } from 'react';
+import { useState, useEffect, ReactNode, useRef } from 'react';
+import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-
-import Portal from '@mui/base/Portal';
-
 import { colors, fontSize, Z_INDEX } from '@/styles';
 
 interface IModalProps {
@@ -13,7 +11,6 @@ interface IModalProps {
 
 function Modal({ isOpen, children, onClose }: IModalProps) {
   const [isCSR, setIsCSR] = useState<boolean>(false);
-  const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsCSR(true);
@@ -22,16 +19,15 @@ function Modal({ isOpen, children, onClose }: IModalProps) {
   if (typeof window === 'undefined') return <></>;
   if (!isCSR || !isOpen) return <></>;
 
-  return (
+  return ReactDOM.createPortal(
     <>
       <Dimmed onClick={onClose} />
-      <Portal container={container.current}>
-        <Container ref={container}>
-          <CloseBtn onClick={onClose}>X</CloseBtn>
-          {children}
-        </Container>
-      </Portal>
-    </>
+      <Container>
+        <CloseBtn onClick={onClose}>X</CloseBtn>
+        {children}
+      </Container>
+    </>,
+    document.getElementById('modal')!,
   );
 }
 
@@ -45,7 +41,7 @@ const Dimmed = styled.div`
   right: 0;
   z-index: ${Z_INDEX.dimmed};
   background: rgba(0, 0, 0, 0.5);
-  animation: fadein 0.8s;
+  animation: fadein 0.3s;
 
   @keyframes fadein {
     from {
