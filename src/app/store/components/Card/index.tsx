@@ -27,18 +27,22 @@ function Card({ data }: ICardProps) {
       <Card.Thumb src={thumb} onClick={toggleModal} />
       <Modal isOpen={showModal} onClose={toggleModal}>
         <Container>
-          <Card.Image alt="store image" src={image} width={600} height={900} />
-          <Card.Info>
-            <Card.Detail>
-              <Typography variant="h4">{name}</Typography>
-              <Typography component="p" sx={{ lineHeight: 2, whiteSpace: 'pre-wrap' }}>
-                {description}
+          <Card.Inner>
+            <Card.Image fill alt="store image" src={image} />
+          </Card.Inner>
+          <Card.Inner>
+            <Card.Info>
+              <Card.Detail>
+                <Typography variant="h4">{name}</Typography>
+                <Typography component="p" sx={{ lineHeight: 2, whiteSpace: 'pre-wrap' }}>
+                  {description}
+                </Typography>
+              </Card.Detail>
+              <Typography component="p" sx={{ fontWeight: 700 }}>
+                매장 위치 보기
               </Typography>
-            </Card.Detail>
-            <Typography component="p" sx={{ fontWeight: 700 }}>
-              매장 위치 보기
-            </Typography>
-          </Card.Info>
+            </Card.Info>
+          </Card.Inner>
         </Container>
       </Modal>
     </>
@@ -49,8 +53,15 @@ export default Card;
 
 const Container = styled.div`
   ${flex('', '')};
+  width: calc(100vw - 100px);
+  height: 900px;
   border-radius: 8px;
   background: ${colors.WHITE};
+`;
+
+const CardInner = styled.section`
+  position: relative;
+  width: 100%;
 `;
 
 const CardImage = styled(Image)`
@@ -59,7 +70,8 @@ const CardImage = styled(Image)`
 
 const CardInfo = styled.div`
   ${flex('space-between', '', 'column')};
-  width: 600px;
+  width: 100%;
+  height: 100%;
   padding: 100px 70px 70px 70px;
   row-gap: 60px;
 `;
@@ -71,5 +83,6 @@ const CardDetail = styled.div`
 
 Card.Thumb = memo(CardThumb);
 Card.Image = CardImage;
+Card.Inner = CardInner;
 Card.Info = CardInfo;
 Card.Detail = CardDetail;
