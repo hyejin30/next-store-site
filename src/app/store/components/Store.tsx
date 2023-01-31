@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { Cards, PageTitle } from '@/components/molecule';
 import { Typography } from '@mui/material';
+import Card from './Card';
 
 import { colors, flex } from '@/styles';
 import { ICardData } from '@/types/store';
@@ -27,7 +28,11 @@ export function Store({ stores }: IStoreProps) {
           >
             STORE
           </Typography>
-          <Cards data={stores} />
+          <Cards>
+            {stores.map((store, idx) => (
+              <Card key={`card-${idx}`} data={store} />
+            ))}
+          </Cards>
         </Wrapper>
       </StoreSection>
     </Container>

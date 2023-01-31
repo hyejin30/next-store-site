@@ -1,20 +1,15 @@
-import { useState, MouseEvent } from 'react';
-
-import Modal from '@/components/molecule/Modal';
-import Card from './Card';
-
+import { Children, ReactNode } from 'react';
 import { Grid } from '@mui/material';
-import { ICardData } from '@/types/store';
 
-interface ICardsProps<T> {
-  data: T[];
+interface ICardsProps {
+  children: ReactNode;
 }
 
-function Cards<T extends ICardData>({ data }: ICardsProps<T>) {
+function Cards({ children }: ICardsProps) {
   return (
     <Grid container spacing={{ sm: 4, md: 4 }}>
-      {data?.map((card, idx) => (
-        <Card key={`card-${idx}`} data={card} />
+      {Children.toArray(children)?.map((child) => (
+        <>{child}</>
       ))}
     </Grid>
   );

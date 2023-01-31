@@ -41,9 +41,9 @@ const Dimmed = styled.div`
   right: 0;
   z-index: ${Z_INDEX.dimmed};
   background: rgba(0, 0, 0, 0.5);
-  animation: fadein 0.3s;
+  animation: fadeIn 0.3s ease-in-out;
 
-  @keyframes fadein {
+  @keyframes fadeIn {
     from {
       opacity: 0;
     }
@@ -59,6 +59,18 @@ const Container = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: ${Z_INDEX.modal};
+  animation: open 0.3s ease-out;
+
+  @keyframes open {
+    from {
+      top: 53%;
+      opacity: 0;
+    }
+    to {
+      top: 50%;
+      opacity: 1;
+    }
+  }
 `;
 
 const CloseBtn = styled.button`
@@ -71,6 +83,7 @@ const CloseBtn = styled.button`
   border: 0;
   color: ${colors.BLACK};
   font-size: ${fontSize.large};
+  z-index: ${Z_INDEX.modal};
 
   &:hover {
     color: ${colors.WHITE};
