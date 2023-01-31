@@ -29,5 +29,7 @@ export default ContentsLayout;
 
 const Container = styled.div`
   ${flex('', '', 'column')};
+  width: 100%;
   row-gap: 40px;
+  min-height: 514px;
 `;

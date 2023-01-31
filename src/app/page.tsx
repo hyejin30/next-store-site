@@ -1,7 +1,7 @@
 import About from '@/app/about/components/About';
 
 function Home() {
-  return <div>HOME</div>;
+  return <About />;
 }
 
 export default Home;
