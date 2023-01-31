@@ -15,6 +15,12 @@
 - Server Component와 Client Componet의 구분
 - data fetching 방법 : getStaticProps -> fetch(URL, { cache : 'force-cache' }
 ```
+
+## 프로젝트 관리 
+- Jira를 통해 할 일을 정리했습니다.
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/98295004/215690185-7d911d23-2484-4b6a-9320-8a28b7906ff4.png">
+
+
 ## 프로젝트 생성
 
 ```
