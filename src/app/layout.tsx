@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation';
 
 import { PageTitle } from '@/components/molecule';
 import { Header, Footer, Layout, WrapperLayout, ContentsLayout } from '@/components/template';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import StyledComponentsRegistry from '@/lib/registry';
 import './globals.css';
 
@@ -18,7 +18,15 @@ const theme = createTheme({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const path = usePathname();
-  const pathname = useMemo(() => path?.slice(1).toUpperCase() || 'ABOUT', [path]);
+
+  const pathname = useMemo(() => {
+    let result = path?.slice(1);
+
+    if (!result) result = 'ABOUT';
+    if (result && result.includes('/')) result = result.split('/')[0];
+
+    return result.toUpperCase();
+  }, [path]);
 
   return (
     <html>

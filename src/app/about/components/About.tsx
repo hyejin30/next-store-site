@@ -18,7 +18,7 @@ function About() {
         </li>
         <li>
           <Typography variant="h5" sx={{ fontWeight: 300 }}>
-            - app 폴더 기반 라우팅
+            - 폴더 기반 라우팅
           </Typography>
         </li>
         <li>
