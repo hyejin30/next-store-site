@@ -10,7 +10,7 @@ import { Header, Footer, Layout, WrapperLayout, ContentsLayout } from '@/compone
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import StyledComponentsRegistry from '@/lib/registry';
-import './globals.css';
+import { spoqa, GlobalStyle } from '@/styles';
 
 const theme = createTheme({
   typography: {
@@ -33,13 +33,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }, [path]);
 
   return (
-    <html>
+    <html className={spoqa.className} lang="ko">
       <head />
       <body>
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
             <QueryClientProvider client={queryClient}>
               <ReactQueryDevtools initialIsOpen={false} />
+              <GlobalStyle />
               <Layout>
                 <Header />
                 <PageTitle>{pathname}</PageTitle>

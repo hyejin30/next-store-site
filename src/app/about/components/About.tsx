@@ -1,37 +1,18 @@
 'use client';
 
 import styled from 'styled-components';
-import { flex } from '@/styles';
-import { Typography } from '@mui/material';
+import { flex, fontSize } from '@/styles';
 
 function About() {
   return (
     <Container>
-      <Typography variant="h4" sx={{ fontWeight: 500 }}>
-        Next.js를 활용해 커먼그라운드의 'Eat' 페이지를 클론한 프로젝트입니다.
-      </Typography>
-      <UpdateList>
-        <li>
-          <Typography variant="h5" sx={{ fontWeight: 300 }}>
-            Next 13에서 업데이트 된 내용을 반영했습니다.
-          </Typography>
-        </li>
-        <li>
-          <Typography variant="h5" sx={{ fontWeight: 300 }}>
-            - 폴더 기반 라우팅
-          </Typography>
-        </li>
-        <li>
-          <Typography variant="h5" sx={{ fontWeight: 300 }}>
-            - Server Component와 Client Component의 구분
-          </Typography>
-        </li>
-        <li>
-          <Typography variant="h5" sx={{ fontWeight: 300 }}>
-            - Data fetching 방식 변경 : fetch(URL, cache option)
-          </Typography>
-        </li>
-      </UpdateList>
+      <ProjectInfo>Next.js를 활용해 커먼그라운드의 'Eat' 페이지를 클론한 프로젝트입니다.</ProjectInfo>
+      <ul>
+        <Item>Next 13에서 업데이트 된 내용을 반영했습니다.</Item>
+        <Item>- 폴더 기반 라우팅</Item>
+        <Item>- Server Component와 Client Component의 구분</Item>
+        <Item>- Data fetching 방식 변경 : fetch(URL, cache option)</Item>
+      </ul>
     </Container>
   );
 }
@@ -43,8 +24,13 @@ const Container = styled.div`
   row-gap: 100px;
 `;
 
-const UpdateList = styled.ul`
-  li {
-    margin-bottom: 20px;
-  }
+const ProjectInfo = styled.h1`
+  font-size: ${fontSize.medium};
+  font-weight: 500;
+`;
+
+const Item = styled.li`
+  font-size: ${fontSize.medium};
+  font-weight: 300;
+  margin-bottom: 20px;
 `;

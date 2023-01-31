@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 import Link from 'next/link';
+import styled from 'styled-components';
 
-import { Typography } from '@mui/material';
-import { colors } from '@/styles';
+import { colors, campton, fontSize } from '@/styles';
 
 interface INavMenuProps {
   children: ReactNode;
@@ -12,17 +12,14 @@ interface INavMenuProps {
 function NavMenu({ children, path }: INavMenuProps) {
   return (
     <Link href={path}>
-      <Typography
-        color={colors.BLACK}
-        variant="h5"
-        sx={{
-          fontFamily: 'Kanit',
-        }}
-      >
-        {children}
-      </Typography>
+      <Text className={campton.className}>{children}</Text>
     </Link>
   );
 }
 
 export default NavMenu;
+
+const Text = styled.span`
+  font-size: ${fontSize.medium};
+  color: ${colors.BLACK};
+`;

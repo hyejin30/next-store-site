@@ -10,11 +10,11 @@ function Logo({ path = '' }: ILogoProps) {
   if (path) {
     return (
       <Link href={path}>
-        <Image alt="logo" src="/images/ic-logo-header.png" width={150} height={65} />
+        <Image alt="logo" src="/images/ic-logo-header.png" width={150} height={65} loading="lazy" />
       </Link>
     );
   }
-  return <Image alt="logo" src="/images/ic-logo-footer.png" width={150} height={50} />;
+  return <Image alt="logo" src="/images/ic-logo-footer.png" width={150} height={50} loading="lazy" />;
 }
 
 export default Logo;
