@@ -80,12 +80,13 @@ const CloseBtn = styled.button`
   position: absolute;
   top: 30px;
   right: 30px;
-  padding: 10px;
+  padding: 20px;
   background-color: ${colors.WHITE};
   border-radius: 8px;
   border: 0;
   font-size: ${fontSize.large};
   z-index: ${Z_INDEX.modal};
+  cursor: pointer;
 
   &:hover {
     background-color: ${colors.BLACK};
