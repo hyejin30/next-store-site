@@ -1,6 +1,7 @@
 import { useState, useEffect, ReactNode, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+
 import { colors, fontSize, Z_INDEX } from '@/styles';
 
 interface IModalProps {
@@ -21,11 +22,13 @@ function Modal({ isOpen, children, onClose }: IModalProps) {
 
   return ReactDOM.createPortal(
     <>
-      <Dimmed onClick={onClose} />
-      <Container>
-        <CloseBtn onClick={onClose}>X</CloseBtn>
+      <Modal.Dimmed onClick={onClose} />
+      <Modal.Container>
+        <Modal.CloseBtn onClick={onClose}>
+          <CloseIcon />
+        </Modal.CloseBtn>
         {children}
-      </Container>
+      </Modal.Container>
     </>,
     document.getElementById('modal')!,
   );
@@ -75,19 +78,33 @@ const Container = styled.div`
 
 const CloseBtn = styled.button`
   position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 15px 25px 17px;
-  background: ${colors.WHITE};
+  top: 30px;
+  right: 30px;
+  padding: 10px;
+  background-color: ${colors.WHITE};
   border-radius: 8px;
   border: 0;
-  color: ${colors.BLACK};
   font-size: ${fontSize.large};
   z-index: ${Z_INDEX.modal};
 
   &:hover {
-    color: ${colors.WHITE};
-    background: ${colors.BLACK};
-    transition: all 0.5s;
+    background-color: ${colors.BLACK};
+    transition: all 0.3s;
+
+    div {
+      background-image: url('/images/ic-close-white.png');
+      transition: all 0.3s;
+    }
   }
 `;
+
+const CloseIcon = styled.div`
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-image: url('/images/ic-close-black.png');
+`;
+
+Modal.Dimmed = Dimmed;
+Modal.Container = Container;
+Modal.CloseBtn = CloseBtn;
