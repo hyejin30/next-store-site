@@ -1,4 +1,4 @@
-export interface ICardData {
+export interface IStoreData {
   id: number;
   name: string;
   description: string;

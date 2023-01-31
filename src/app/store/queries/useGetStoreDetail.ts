@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 
 const fetchStoreDetail = async (id: number) => {
   const res = await fetch(`http://localhost:9000/stores/${id}`);
