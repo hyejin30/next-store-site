@@ -1,7 +1,6 @@
 import { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { flex } from '@/styles';
-import { PageTitle } from '@/components/molecule';
 
 interface IWrapperLayoutProps extends HTMLAttributes<HTMLDivElement> {}
 
