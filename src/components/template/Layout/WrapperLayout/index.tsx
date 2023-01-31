@@ -1,14 +1,25 @@
 import { HTMLAttributes } from 'react';
 import styled from 'styled-components';
+import { flex } from '@/styles';
 
 interface IWrapperLayoutProps extends HTMLAttributes<HTMLDivElement> {}
 
 function WrapperLayout({ children }: IWrapperLayoutProps) {
-  return <Container>{children}</Container>;
+  return (
+    <Container>
+      <Wrapper>{children}</Wrapper>
+    </Container>
+  );
 }
 
 export default WrapperLayout;
 
 const Container = styled.div`
-  padding: 0 32px;
+  ${flex('', 'center', 'column')};
+  padding: 110px 0;
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  max-width: 1140px;
 `;
