@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react';
 import { usePathname } from 'next/navigation';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { PageTitle } from '@/components/molecule';
 import { Header, Footer, Layout, WrapperLayout, ContentsLayout } from '@/components/template';
@@ -15,6 +16,8 @@ const theme = createTheme({
     fontFamily: 'Spoqa Han Sans Neo',
   },
 });
+
+const queryClient = new QueryClient();
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const path = usePathname();
@@ -34,15 +37,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
-            <Layout>
-              <Header />
-              <PageTitle>{pathname}</PageTitle>
-              <WrapperLayout>
-                <ContentsLayout pathname={pathname}>{children}</ContentsLayout>
-              </WrapperLayout>
-              <Footer />
-            </Layout>
-            <div id="modal"></div>
+            <QueryClientProvider client={queryClient}>
+              <Layout>
+                <Header />
+                <PageTitle>{pathname}</PageTitle>
+                <WrapperLayout>
+                  <ContentsLayout pathname={pathname}>{children}</ContentsLayout>
+                </WrapperLayout>
+                <Footer />
+              </Layout>
+              <div id="modal"></div>
+            </QueryClientProvider>
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>
