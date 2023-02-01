@@ -59,19 +59,16 @@ json-server ./db.json -p 9000
 
 ## 구현 사항
 
-PC 기준으로 작업했으며, 태블릿/모바일 기기는 고려하지 않았습니다.
-<br />
-추후 태블릿/모바일 기기 대응 가능하도록 반응형으로 작업할 예정입니다.
+- PC 기준으로 작업했으며, 태블릿/모바일 기기는 고려하지 않았습니다.
+- 추후 태블릿/모바일 기기 대응 가능하도록 반응형으로 작업할 예정입니다.
 
 <br/>
 
 ## 1. 기술 스택
 
-서버 사이드 렌더링을 위해 next.js를 사용했으며
-<br />
-서버 상태 관리를 위해 react-query,
-<br />
-더미 데이터를 불러오기 위해 json-server를 사용했습니다.
+- 서버 사이드 렌더링을 위해 next.js를 사용했으며
+- 서버 상태 관리를 위해 react-query
+- 더미 데이터를 불러오기 위해 json-server를 사용했습니다.
 
 ```
 - next.js, typescript
@@ -84,11 +81,10 @@ PC 기준으로 작업했으며, 태블릿/모바일 기기는 고려하지 않�
 
 ## 2. 렌더링 방식 - SSG
 
-사용자의 요청으로 데이터가 변하는 사이트가 아니므로
-<br />
-빌드 시 모든 page를 렌더링하되 추후 다시 빌드하지 않으면 데이터 변경이 없는 SSG 방식을 선택했습니다.
-<br />
-댓글이 달리는 형태가 아니므로 revalidate 옵션은 넣지 않았습니다.
+- 사용자의 요청으로 데이터가 변하는 사이트가 아니므로
+  <br />
+  빌드 시 모든 page를 렌더링하되 추후 다시 빌드하지 않으면 데이터 변경이 없는 SSG 방식을 선택했습니다.
+- 댓글이 달리는 형태가 아니므로 revalidate 옵션은 넣지 않았습니다.
 
 ```typescript
 // app/store/page.tsx
@@ -112,19 +108,16 @@ async function StorePage() {
 
 <br />
 
-- 아토믹 디자인 패턴 [(참고글)](https://fe-developers.kakaoent.com/2022/220505-how-page-part-use-atomic-design-system/)
-  <br />
-  쪼갤 수 없는 단위를 atom으로 하여, atom을 조합해 molecule, organism 등을 만들어 가는 방식
+[아토믹 디자인 패턴] [(참고글)](https://fe-developers.kakaoent.com/2022/220505-how-page-part-use-atomic-design-system/)
+- 쪼갤 수 없는 단위를 atom으로 하여, atom을 조합해 molecule, organism 등을 만들어 가는 방식
 
 <img width="518" alt="image" src="https://user-images.githubusercontent.com/98295004/214600685-48d2ab23-2b7b-4215-9a6d-a7ab6d0067fe.png">
 
 <br />
 
-- Next 13 Layout
-  <br />
-  `<Layout>` 컴포넌트 -> layout.tsx 페이지를 만드는 방식으로 변경되었습니다.
-  <br />
-  app 폴더에 layout.tsx를 만든 뒤 아래 공통 컴포넌트를 삽입했습니다.
+[Next 13 Layout]
+- `<Layout>` 컴포넌트 -> layout.tsx 페이지를 만드는 방식으로 변경되었습니다.
+- app 폴더에 layout.tsx를 만든 뒤 아래 공통 컴포넌트를 삽입했습니다.
 
 ```
 - [전체] Layout : 좌우 padding 적용
@@ -149,11 +142,9 @@ async function StorePage() {
 
 ## 4. app 디렉토리 (폴더 기반 라우팅)
 
-기존 pages 폴더는 404 페이지만 남겼으며
-<br />
-store, about 폴더를 app 폴더 하위에 추가했습니다.
-<br />
-폴더명이 곧 페이지 경로가 됩니다.
+- 기존 pages 폴더는 404 페이지만 남겼으며
+- store, about 폴더를 app 폴더 하위에 추가했습니다.
+- 폴더명이 곧 페이지 경로가 됩니다.
 
 ```typescript
 app
@@ -179,9 +170,9 @@ react-query를 이용해 데이터를 캐싱하여 중복 호출을 방지했습
 
 ## 6. Stores (맛집 목록)
 
-MUI `Grid` 컴포넌트로 구현했으며 해상도에 따라 썸네일들의 배치가 변경됩니다.
-<br />
-썸네일 클릭 시, 모달 내의 StoreDetail이 변경되도록 했습니다.
+맛집 썸네일 목록
+- MUI `Grid` 컴포넌트로 구현했으며 해상도에 따라 썸네일들의 배치가 변경됩니다.
+- 썸네일 클릭 시, 모달 내의 StoreDetail이 변경되도록 했습니다.
 
 ```typescript
 <>
@@ -194,6 +185,35 @@ MUI `Grid` 컴포넌트로 구현했으며 해상도에 따라 썸네일들의 �
     {getSuccess && <StoreDetail data={storeDetail} />}
   </Modal>
 </>
+```
+
+<br />
+
+모달 컴포넌트 애니메이션 
+- Dimmed에 fade-in 애니메이션을 적용했으며
+- Container에 아래에서 위로 올라오는 open 애니메이션을 적용했습니다.
+```typescript
+// components/molecule/Modal/index.tsx 
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes open {
+  from {
+    top: 53%;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
+}
 ```
 
 <br />
