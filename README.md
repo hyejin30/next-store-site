@@ -34,6 +34,7 @@ yarn create next-app next-store-site --typescript
 ## 프로젝트 실행
 
 ```
+git clone https://github.com/hyejin30/next-store-site
 yarn install
 yarn build
 yarn start
