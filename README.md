@@ -30,15 +30,17 @@
 
 <br />
 
+/*
 ## 프로젝트 생성
 
 ```
 yarn create next-app next-store-site --typescript
 ```
+*/
 
 <br />
 
-## 프로젝트 실행
+## 프로젝트 설치 및 실행
 
 ```
 git clone https://github.com/hyejin30/next-store-site
